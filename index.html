@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For My Beautiful Baby</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;700&display=swap');
+        :root { --deep-brown: #2d1b0f; --gold: #d4af37; }
+        body { background-color: var(--deep-brown); color: #fdf5e6; font-family: 'Quicksand', sans-serif; overflow: hidden; margin: 0; touch-action: manipulation; }
+        .bg-hearts { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+        .heart-particle { position: absolute; color: rgba(212, 175, 55, 0.2); animation: move-up 8s linear infinite; }
+        @keyframes move-up { 0% { transform: translateY(110vh) scale(0.5); opacity: 0; } 100% { transform: translateY(-10vh) scale(1.2); opacity: 0; } }
+        .slide { display: none; height: 100vh; width: 100vw; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; position: absolute; z-index: 10; }
+        .active { display: flex; animation: fadeIn 0.8s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .btn-next { margin-top: 1.5rem; background: var(--gold); color: var(--deep-brown); padding: 12px 35px; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.5); cursor: pointer; border: none; }
+        .brown-card { background: rgba(45, 27, 15, 0.9); border: 1px solid var(--gold); border-radius: 24px; padding: 1.5rem; max-width: 90%; }
+        #yesBtn { transition: transform 0.3s; background: #d4af37; color: #2d1b0f; z-index: 100; border: none; }
+        #noBtn { transition: all 0.2s ease; z-index: 50; border: none; background: #555; color: white; }
+        .emoji-icon { font-size: 80px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="bg-hearts" id="bg-hearts"></div>
+
+    <div class="slide active" id="slide1">
+        <div class="emoji-icon">💛</div>
+        <h1 class="text-4xl font-bold text-yellow-500 mb-2" style="font-family: 'Dancing Script';">Bello, My Beautiful Baby!</h1>
+        <p class="text-lg italic text-yellow-100">Click below for a surprise...</p>
+        <button class="btn-next" onclick="nextSlide(2)">Open It ✨</button>
+    </div>
+
+    <div class="slide" id="slide2">
+        <div class="brown-card">
+            <h2 class="text-3xl font-bold mb-4 text-yellow-500" style="font-family: 'Dancing Script';">My Queen</h2>
+            <p class="text-sm leading-relaxed text-left">There aren't enough words for how sweet you are. You have a heart of pure gold, and you make my world brighter. You are my Queen, today and always.</p>
+        </div>
+        <button class="btn-next" onclick="nextSlide(3)">Keep going...</button>
+    </div>
+
+    <div class="slide" id="slide3">
+        <div class="brown-card">
+            <h2 class="text-3xl font-bold text-yellow-500 mb-4" style="font-family: 'Dancing Script';">My Princess</h2>
+            <p class="text-sm leading-relaxed text-left">I love your energy and how you make me laugh. You’re my favorite brand of "crazy," and I wouldn't trade you for the world, My Princess.</p>
+        </div>
+        <button class="btn-next" onclick="nextSlide(4)">Next...</button>
+    </div>
+
+    <div class="slide" id="slide4">
+        <div class="brown-card">
+            <h2 class="text-3xl font-bold mb-6 text-yellow-500" style="font-family: 'Dancing Script';">My Baby</h2>
+            <p class="text-md leading-relaxed italic mb-6">No screen can dim the light you show,<br>My beautiful girl, I love you so.<br>Through every laugh and crazy day,<br>I'm with you, even worlds away.</p>
+        </div>
+        <button class="btn-next" onclick="nextSlide(5)">The Question</button>
+    </div>
+
+    <div class="slide" id="slide5">
+        <img src="https://api.iconify.design/noto:wrapped-gift.svg" class="w-24 mb-4" alt="Gift">
+        <div class="brown-card mb-8">
+            <h2 class="text-3xl font-bold text-yellow-500 mb-2" style="font-family: 'Dancing Script';">Will you be my Valentine?</h2>
+            <p class="text-lg font-bold text-yellow-600">Abeg say yes, My Beautiful Baby! ❤️</p>
+        </div>
+        <div class="flex flex-col items-center gap-4 w-full relative h-48">
+            <button id="yesBtn" onclick="celebrate()" class="px-16 py-4 rounded-full text-2xl font-bold shadow-2xl">YES!</button>
+            <button id="noBtn" onclick="moveNoAndGrow()" class="px-10 py-2 rounded-full text-lg">No</button>
+        </div>
+    </div>
+
+    <script>
+        function createBGHeart() {
+            const container = document.getElementById('bg-hearts');
+            const heart = document.createElement('div');
+            heart.innerHTML = '🤎'; heart.className = 'heart-particle';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+            container.appendChild(heart);
+            setTimeout(() => heart.remove(), 8000);
+        }
+        setInterval(createBGHeart, 500);
+
+        function nextSlide(n) {
+            document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+            document.getElementById('slide' + n).classList.add('active');
+        }
+
+        let yesScale = 1;
+        function moveNoAndGrow() {
+            const btnNo = document.getElementById('noBtn');
+            const btnYes = document.getElementById('yesBtn');
+            const newX = Math.random() * (window.innerWidth - 100);
+            const newY = Math.random() * (window.innerHeight - 100);
+            btnNo.style.position = 'fixed';
+            btnNo.style.left = newX + 'px';
+            btnNo.style.top = newY + 'px';
+            yesScale += 0.5;
+            btnYes.style.transform = `scale(${yesScale})`;
+        }
+
+        function celebrate() {
+            document.body.innerHTML = `
+                <div class="slide active">
+                    <div class="emoji-icon">💖</div>
+                    <h1 class="text-6xl font-bold text-yellow-500 mb-6" style="font-family: 'Dancing Script';">YAY! ❤️</h1>
+                    <p class="text-xl italic">I love you, My Beautiful Baby!</p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
