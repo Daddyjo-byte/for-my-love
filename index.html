@@ -96,6 +96,7 @@ body {
   top: -20px;
   font-size: 26px;
   animation: fall linear forwards;
+  z-index: 999;
 }
 
 @keyframes fall {
@@ -109,7 +110,6 @@ body {
 
 <body>
 
-<!-- MUSIC -->
 <audio id="loveSong" src="thousand-years.mp3"></audio>
 
 <!-- SLIDE 1 -->
@@ -117,7 +117,10 @@ body {
   <h1 class="text-4xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
     Bello, My Beautiful Baby 🤎
   </h1>
-  <p class="italic">I made this just for you…</p>
+  <p class="italic">
+    I made this with so much love, just for you…  
+    Take your time and read it slowly.
+  </p>
   <button class="btn-next" onclick="startExperience()">Open It ✨</button>
 </div>
 
@@ -127,12 +130,24 @@ body {
     <h2 class="text-3xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
       To My Eternal Queen
     </h2>
+    <p class="text-sm text-left mb-3">
+      There truly aren’t enough words in the world to describe how incredible you are,
+      but I’ll still try because you deserve to hear them.  
+      You carry yourself with a grace that leaves me speechless, and your heart is crafted
+      from the purest gold. You don’t just walk into a room — you change the atmosphere.
+    </p>
+    <p class="text-sm text-left mb-3">
+      Your presence feels like warmth, like home, like peace. You make people feel seen,
+      heard, and valued just by being yourself. I don’t take it lightly that I’m the one
+      who gets to experience your love so closely.
+    </p>
     <p class="text-sm text-left">
-      There truly aren't enough words in the world to describe how incredible you are.
-      You carry yourself with a grace that leaves me speechless.
+      Every single day, you inspire me to be better — to love harder, to try more,
+      and to grow into the man you deserve. You are, and will always be,
+      the Queen of my heart 🤎
     </p>
   </div>
-  <button class="btn-next" onclick="nextSlide(3)">Next</button>
+  <button class="btn-next" onclick="nextSlide(3)">Keep going…</button>
 </div>
 
 <!-- SLIDE 3 -->
@@ -141,11 +156,24 @@ body {
     <h2 class="text-3xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
       My Beautiful Princess
     </h2>
+    <p class="text-sm text-left mb-3">
+      I absolutely adore your energy — the way you laugh, the way your eyes light up,
+      and the way you turn even the simplest moments into something special.
+      Your laughter is my favorite sound in the world, and it stays in my head
+      long after our conversations end.
+    </p>
+    <p class="text-sm text-left mb-3">
+      You have this playful, beautiful spirit that makes life feel lighter.
+      Even on my hardest days, thinking about you brings me comfort.
+      You remind me that love doesn’t have to be loud to be powerful.
+    </p>
     <p class="text-sm text-left">
-      You are my joy, my peace, and my favorite person in the world.
+      You are my joy, my peace, my safe place, and my best friend.
+      Loving you feels natural — like it’s exactly where my heart
+      was always meant to be.
     </p>
   </div>
-  <button class="btn-next" onclick="nextSlide(4)">Next</button>
+  <button class="btn-next" onclick="nextSlide(4)">Next…</button>
 </div>
 
 <!-- SLIDE 4 -->
@@ -154,9 +182,20 @@ body {
     <h2 class="text-3xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
       My Baby, My Everything
     </h2>
-    <p class="italic">
-      I have loved you for a thousand years,<br>
-      I’ll love you for a thousand more 🤎
+    <p class="italic mb-4">
+      No screen can dim the light you show,<br>
+      My beautiful girl, I love you so.<br>
+      Through every laugh and crazy day,<br>
+      I’m with you, even worlds away.
+    </p>
+    <p class="text-sm text-left mb-3">
+      Distance doesn’t matter, time doesn’t matter, and nothing else compares
+      to what I feel for you. You are the first thought on my mind when I wake up
+      and the last thought before I fall asleep.
+    </p>
+    <p class="text-sm text-left">
+      You are not just a part of my life — you are the heartbeat behind everything I do.
+      Loving you is my favorite thing, and choosing you will always be easy.
     </p>
   </div>
   <button class="btn-next" onclick="nextSlide(5)">The Question</button>
@@ -164,12 +203,15 @@ body {
 
 <!-- SLIDE 5 -->
 <div class="slide" id="slide5">
-  <img src="minion.png" class="minion" alt="Minion kneeling">
+  <img src="minion.png" class="minion" alt="Minion kneeling with heart">
+
   <div class="brown-card mb-6">
     <h2 class="text-3xl text-yellow-500" style="font-family:'Dancing Script'">
       Will you be my Valentine?
     </h2>
-    <p class="font-bold text-yellow-600">Say yes 🤎</p>
+    <p class="font-bold text-yellow-600">
+      Abeg say yes, My Beautiful Baby 🤎
+    </p>
   </div>
 
   <button id="yesBtn" onclick="celebrate()">YES!</button>
@@ -184,7 +226,7 @@ function startExperience() {
 
 function nextSlide(n) {
   document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
-  document.getElementById('slide'+n).classList.add('active');
+  document.getElementById('slide' + n).classList.add('active');
 }
 
 function moveNo() {
@@ -195,17 +237,17 @@ function moveNo() {
 }
 
 function celebrate() {
-  for (let i=0;i<60;i++) {
+  for (let i = 0; i < 60; i++) {
     const c = document.createElement('div');
     c.className = 'confetti';
     c.innerHTML = ['🤎','💖','✨','💛'][Math.floor(Math.random()*4)];
-    c.style.left = Math.random()*100+'vw';
-    c.style.animationDuration = (Math.random()*2+2)+'s';
+    c.style.left = Math.random()*100 + 'vw';
+    c.style.animationDuration = (Math.random()*2 + 2) + 's';
     document.body.appendChild(c);
-    setTimeout(()=>c.remove(),4000);
+    setTimeout(() => c.remove(), 4000);
   }
 
-  setTimeout(()=>{
+  setTimeout(() => {
     document.body.innerHTML = `
       <div class="slide active">
         <h1 class="text-6xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
@@ -216,7 +258,7 @@ function celebrate() {
         </p>
       </div>
     `;
-  },1200);
+  }, 1200);
 }
 </script>
 
