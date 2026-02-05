@@ -34,25 +34,28 @@ body {
   text-align: center;
   padding: 20px;
   position: absolute;
-  opacity: 0;
-  transition: opacity 1.5s ease;
 }
 
-.slide.active {
+.active {
   display: flex;
-  opacity: 1;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .brown-card {
-  background: rgba(58,36,24,0.95);
+  background: rgba(58,36,24,0.96);
   border: 1px solid var(--gold);
   border-radius: 24px;
-  padding: 2.5rem;
-  max-width: 620px;
+  padding: 2rem;
+  max-width: 480px;
 }
 
 .btn-next {
-  margin-top: 1.8rem;
+  margin-top: 1.5rem;
   background: var(--gold);
   color: var(--deep-brown);
   padding: 12px 35px;
@@ -75,9 +78,10 @@ body {
 #yesBtn {
   background: var(--gold);
   color: var(--deep-brown);
-  font-size: 1.5rem;
-  padding: 14px 60px;
+  font-size: 1.6rem;
+  padding: 14px 70px;
   border-radius: 999px;
+  transition: transform 0.3s;
 }
 
 #noBtn {
@@ -100,20 +104,12 @@ body {
     opacity: 0;
   }
 }
-
-.typing span {
-  opacity: 0;
-  animation: reveal 0.03s forwards;
-}
-
-@keyframes reveal {
-  to { opacity: 1; }
-}
 </style>
 </head>
 
 <body>
 
+<!-- MUSIC -->
 <audio id="loveSong" src="thousand-years.mp3"></audio>
 
 <!-- SLIDE 1 -->
@@ -121,46 +117,90 @@ body {
   <h1 class="text-4xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
     Bello, My Beautiful Baby 🤎
   </h1>
-  <p class="italic max-w-md typing">
-    I didn’t just make this randomly.
-    I made it slowly, thoughtfully, and intentionally —
-    because you are someone who deserves effort,
-    softness, and love expressed properly.
+  <p class="italic max-w-md">
+    I made something special for you.  
+    Something small, but filled with all the love my heart can hold.
   </p>
   <button class="btn-next" onclick="startExperience()">Open It ✨</button>
 </div>
 
-<!-- (ALL YOUR EXISTING SLIDES REMAIN UNCHANGED HERE) -->
-<!-- I am intentionally NOT rewriting them -->
+<!-- SLIDE 2 -->
+<div class="slide" id="slide2">
+  <div class="brown-card">
+    <h2 class="text-3xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
+      To My Eternal Queen
+    </h2>
+    <p class="text-sm text-left mb-3">
+      There truly aren’t enough words in this world to describe how incredible you are.
+      From the way you think, to the way you love, to the way you carry yourself —
+      everything about you feels rare, intentional, and deeply beautiful.
+    </p>
+    <p class="text-sm text-left">
+      You inspire me in ways you don’t even realize. Loving you has made me more patient,
+      more hopeful, and more sure of what my heart wants — and it wants you.
+    </p>
+  </div>
+  <button class="btn-next" onclick="nextSlide('slide3')">Next</button>
+</div>
 
-<!-- NEW SLIDE: DISTANCE -->
-<div class="slide" id="slideDistance">
-  <div class="brown-card typing">
+<!-- SLIDE 3 -->
+<div class="slide" id="slide3">
+  <div class="brown-card">
+    <h2 class="text-3xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
+      You Are Many Things To Me
+    </h2>
+    <p class="text-sm text-left space-y-2">
+      You are my love — the kind that feels safe, deep, and endlessly warm.<br><br>
+      My comfort — the place my heart runs to when the world feels heavy.<br><br>
+      My queen and my princess — strong yet soft, graceful yet powerful.<br><br>
+      My best friend — the one I want to tell everything to, even the silly things.<br><br>
+      My peace — the calm that settles me just by thinking of you.<br><br>
+      My cuddle buddy (even though you never approve my rights o 😒).<br><br>
+      My safe zone, my anti-depressant, my babe, my bae, my strict partner —
+      and my one and only love.
+    </p>
+  </div>
+  <button class="btn-next" onclick="nextSlide('slide4')">Next</button>
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide" id="slide4">
+  <div class="brown-card">
+    <h2 class="text-3xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
+      You Drive Me Crazy 🤎
+    </h2>
+    <p class="text-sm text-left">
+      It’s honestly because of you that I get this crazy sometimes.
+      I crave you — your presence, your voice, your attention.
+      Sometimes just thinking about you makes me flustered and I can’t think straight.
+      You’re dangerously attractive, both emotionally and physically,
+      and I blame you entirely for that.
+      And yes… I’m still waiting patiently for my permissions and rights 😌
+      (which you have refused to sign till date).
+    </p>
+  </div>
+  <button class="btn-next" onclick="nextSlide('slide5')">Next</button>
+</div>
+
+<!-- SLIDE 5 -->
+<div class="slide" id="slide5">
+  <div class="brown-card">
     <h2 class="text-3xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
       No Matter The Distance
     </h2>
-    <p class="text-sm mb-3">
-      Even though we’re thousands of miles apart, I want you to know this clearly —
-      distance has never weakened what I feel for you.
-    </p>
-    <p class="text-sm mb-3">
-      If anything, it has made me more intentional,
-      more patient,
-      and more certain of you.
-      Loving you from afar has only proven how real this is to me.
-    </p>
-    <p class="text-sm">
-      I’ll be there for you in every way I can —
-      emotionally, mentally, and with my whole heart.
-      No matter the miles between us,
-      our love will remain strong, steady, and unshaken.
+    <p class="text-sm text-left">
+      Even though we’re thousands of miles apart,
+      my heart has never felt closer to yours.
+      Distance may separate our hands, but it will never weaken our love.
+      I’ll be there for you, always — and our love will remain strong,
+      steady, and unshaken.
     </p>
   </div>
-  <button class="btn-next" onclick="nextSlide('slide7')">Next</button>
+  <button class="btn-next" onclick="nextSlide('slideQuestion')">The Question</button>
 </div>
 
-<!-- FINAL QUESTION SLIDE -->
-<div class="slide" id="slide7">
+<!-- QUESTION SLIDE -->
+<div class="slide" id="slideQuestion">
   <img src="minion.png" class="minion" alt="Minion kneeling">
   <div class="brown-card mb-6">
     <h2 class="text-3xl text-yellow-500" style="font-family:'Dancing Script'">
@@ -182,41 +222,38 @@ function startExperience() {
 function nextSlide(id) {
   document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  typeText();
-}
-
-function typeText() {
-  document.querySelectorAll('.typing').forEach(el => {
-    if (el.dataset.done) return;
-    const text = el.innerHTML;
-    el.innerHTML = '';
-    [...text].forEach((char, i) => {
-      const span = document.createElement('span');
-      span.textContent = char;
-      span.style.animationDelay = `${i * 25}ms`;
-      el.appendChild(span);
-    });
-    el.dataset.done = true;
-  });
 }
 
 function moveNo() {
   const no = document.getElementById('noBtn');
-  no.style.position='fixed';
-  no.style.left=Math.random()*80+'vw';
-  no.style.top=Math.random()*80+'vh';
+  no.style.position = 'fixed';
+  no.style.left = Math.random()*80 + 'vw';
+  no.style.top = Math.random()*80 + 'vh';
 }
 
 function celebrate() {
-  for (let i=0;i<70;i++) {
-    const c=document.createElement('div');
-    c.className='confetti';
-    c.innerHTML=['🤎','💖','✨','💛'][Math.floor(Math.random()*4)];
-    c.style.left=Math.random()*100+'vw';
-    c.style.animationDuration=(Math.random()*2+2)+'s';
+  for (let i=0;i<60;i++) {
+    const c = document.createElement('div');
+    c.className = 'confetti';
+    c.innerHTML = ['🤎','💖','✨','💛'][Math.floor(Math.random()*4)];
+    c.style.left = Math.random()*100+'vw';
+    c.style.animationDuration = (Math.random()*2+2)+'s';
     document.body.appendChild(c);
     setTimeout(()=>c.remove(),4000);
   }
+
+  setTimeout(()=>{
+    document.body.innerHTML = `
+      <div class="slide active">
+        <h1 class="text-6xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
+          She Said YES 🤎
+        </h1>
+        <p class="text-xl italic">
+          I’ll love you for a thousand years… and more.
+        </p>
+      </div>
+    `;
+  },1200);
 }
 </script>
 
