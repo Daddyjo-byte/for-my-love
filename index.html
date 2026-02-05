@@ -251,17 +251,41 @@ function moveNoAndGrow(){
   yes.style.transform=`scale(${scale})`;
 }
 
-function celebrate(){
-  document.body.innerHTML=`
-    <div class="slide active">
-      <div class="emoji-icon">💖</div>
-      <h1 class="text-6xl text-yellow-500" style="font-family:'Dancing Script'">YAY! ❤️</h1>
-      <p class="text-2xl italic mt-4">You've made me the happiest man alive!</p>
-      <p class="mt-2">I love you, My Beautiful Baby! Forever and always.</p>
-    </div>
-  `;
+function celebrate() {
+
+  // CONFETTI EFFECT
+  for (let i = 0; i < 40; i++) {
+    const confetti = document.createElement('div');
+    confetti.className = 'confetti';
+    confetti.innerHTML = ['💖','💛','❤️','✨','😍'][Math.floor(Math.random()*5)];
+    confetti.style.left = Math.random() * 100 + 'vw';
+    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+    document.body.appendChild(confetti);
+    setTimeout(() => confetti.remove(), 3000);
+  }
+
+  // FINAL SCREEN
+  setTimeout(() => {
+    document.body.innerHTML = `
+      <div class="slide active">
+        <div class="emoji-icon">💖</div>
+        <h1 class="text-6xl font-bold text-yellow-500 mb-6"
+            style="font-family:'Dancing Script';">
+          YAY! ❤️
+        </h1>
+        <p class="text-2xl italic mb-4">
+          You've made me the happiest man alive!
+        </p>
+        <p class="text-lg">
+          I love you, My Beautiful Baby! Forever and always.
+        </p>
+      </div>
+    `;
+  }, 1200);
 }
+
 </script>
 
 </body>
 </html>
+
