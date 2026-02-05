@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For My Beautiful Baby</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
@@ -11,67 +11,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;700&display=swap');
 
 :root {
-  --deep-brown: #2d1b0f;
+  --deep-brown: #2b1a12;
+  --soft-brown: #3a2418;
   --gold: #d4af37;
 }
 
-html, body {
-  width: 100%;
-  overflow-x: hidden;
-}
-
 body {
-  background-color: var(--deep-brown);
+  background: var(--deep-brown);
   color: #fdf5e6;
   font-family: 'Quicksand', sans-serif;
   margin: 0;
   overflow: hidden;
 }
 
-/* Floating hearts */
-.bg-hearts {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.heart-particle {
-  position: absolute;
-  color: rgba(212,175,55,0.2);
-  animation: floatUp 8s linear infinite;
-}
-
-@keyframes floatUp {
-  0% { transform: translateY(110vh); opacity: 0; }
-  100% { transform: translateY(-10vh); opacity: 0; }
-}
-
-/* Slides */
 .slide {
   display: none;
   height: 100vh;
   width: 100vw;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   text-align: center;
   padding: 20px;
   position: absolute;
-  z-index: 10;
 }
 
 .active {
   display: flex;
-  animation: fadeIn 0.8s ease-in-out;
+  animation: fadeIn 1s ease;
 }
 
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+.brown-card {
+  background: rgba(58,36,24,0.95);
+  border: 1px solid var(--gold);
+  border-radius: 24px;
+  padding: 2rem;
+  max-width: 450px;
 }
 
 .btn-next {
@@ -85,207 +65,160 @@ body {
   border: none;
 }
 
-.brown-card {
-  background: rgba(45,27,15,0.9);
-  border: 1px solid var(--gold);
-  border-radius: 24px;
-  padding: 2rem;
-  max-width: 90%;
-  width: 450px;
-}
-
-.emoji-icon {
-  font-size: 80px;
+.minion {
+  width: 160px;
+  animation: bounce 2.5s infinite;
   margin-bottom: 20px;
 }
 
-/* Buttons */
+@keyframes bounce {
+  50% { transform: translateY(-12px); }
+}
+
 #yesBtn {
-  background: #d4af37;
-  color: #2d1b0f;
-  border: none;
+  background: var(--gold);
+  color: var(--deep-brown);
+  font-size: 1.5rem;
+  padding: 14px 60px;
+  border-radius: 999px;
   transition: transform 0.3s;
 }
 
 #noBtn {
   background: #555;
   color: white;
-  border: none;
-  transition: all 0.2s;
+  padding: 10px 30px;
+  border-radius: 999px;
 }
 
-/* Minion animation */
-.minion {
-  width: 160px;
-  margin-bottom: 20px;
-  animation: minionBounce 2.5s ease-in-out infinite;
+.confetti {
+  position: fixed;
+  top: -20px;
+  font-size: 26px;
+  animation: fall linear forwards;
 }
 
-@keyframes minionBounce {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg-hearts" id="bg-hearts"></div>
+<!-- MUSIC -->
+<audio id="loveSong" src="thousand-years.mp3"></audio>
 
-<!-- Slide 1 -->
+<!-- SLIDE 1 -->
 <div class="slide active" id="slide1">
-  <div class="emoji-icon">💛</div>
-  <h1 class="text-4xl font-bold text-yellow-500 mb-2" style="font-family:'Dancing Script'">
-    Bello, My Beautiful Baby!
+  <h1 class="text-4xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
+    Bello, My Beautiful Baby 🤎
   </h1>
-  <p class="italic text-yellow-100">I have so much to say to you... click below.</p>
-  <button class="btn-next" onclick="nextSlide(2)">Open It ✨</button>
+  <p class="italic">I made this just for you…</p>
+  <button class="btn-next" onclick="startExperience()">Open It ✨</button>
 </div>
 
-<!-- Slide 2 -->
+<!-- SLIDE 2 -->
 <div class="slide" id="slide2">
   <div class="brown-card">
-    <h2 class="text-3xl font-bold text-yellow-500 mb-4" style="font-family:'Dancing Script'">
+    <h2 class="text-3xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
       To My Eternal Queen
     </h2>
-    <p class="text-sm text-left mb-3">
-      There truly aren't enough words in the world to describe how incredible you are.
-      You carry yourself with a grace that leaves me speechless, and your heart is crafted
-      from the purest gold. You don't just walk into a room; you light it up with a warmth
-      that everyone can feel, but I'm the lucky one who gets to call you mine.
-    </p>
     <p class="text-sm text-left">
-      Every single day, you inspire me to be a better person just by being who you are.
-      Your strength, your kindness, and your wisdom make you the Queen of my heart, today
-      and for all the days to come.
+      There truly aren't enough words in the world to describe how incredible you are.
+      You carry yourself with a grace that leaves me speechless.
     </p>
   </div>
-  <button class="btn-next" onclick="nextSlide(3)">Keep going...</button>
+  <button class="btn-next" onclick="nextSlide(3)">Next</button>
 </div>
 
-<!-- Slide 3 -->
+<!-- SLIDE 3 -->
 <div class="slide" id="slide3">
   <div class="brown-card">
-    <h2 class="text-3xl font-bold text-yellow-500 mb-4" style="font-family:'Dancing Script'">
+    <h2 class="text-3xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
       My Beautiful Princess
     </h2>
-    <p class="text-sm text-left mb-3">
-      I absolutely adore your energy. The way you laugh—that genuine, soul-stirring sound—
-      is my favorite melody in the world. You have this beautiful, playful spirit that makes
-      even the most ordinary moments feel like an adventure.
-    </p>
     <p class="text-sm text-left">
-      You are my joy, my peace, and my best friend all wrapped into one.
+      You are my joy, my peace, and my favorite person in the world.
     </p>
   </div>
-  <button class="btn-next" onclick="nextSlide(4)">Next...</button>
+  <button class="btn-next" onclick="nextSlide(4)">Next</button>
 </div>
 
-<!-- Slide 4 -->
+<!-- SLIDE 4 -->
 <div class="slide" id="slide4">
   <div class="brown-card">
-    <h2 class="text-3xl font-bold text-yellow-500 mb-6" style="font-family:'Dancing Script'">
+    <h2 class="text-3xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
       My Baby, My Everything
     </h2>
-    <p class="italic mb-4">
-      No screen can dim the light you show,<br>
-      My beautiful girl, I love you so.<br>
-      Through every laugh and crazy day,<br>
-      I'm with you, even worlds away.
-    </p>
-    <p class="text-sm text-left">
-      You aren't just a part of my life; you are the heartbeat behind everything I do.
+    <p class="italic">
+      I have loved you for a thousand years,<br>
+      I’ll love you for a thousand more 🤎
     </p>
   </div>
   <button class="btn-next" onclick="nextSlide(5)">The Question</button>
 </div>
 
-<!-- Slide 5 -->
+<!-- SLIDE 5 -->
 <div class="slide" id="slide5">
-
-  <img src="minion.png" class="minion" alt="Minion kneeling with heart">
-
+  <img src="minion.png" class="minion" alt="Minion kneeling">
   <div class="brown-card mb-6">
-    <h2 class="text-3xl font-bold text-yellow-500 mb-2" style="font-family:'Dancing Script'">
+    <h2 class="text-3xl text-yellow-500" style="font-family:'Dancing Script'">
       Will you be my Valentine?
     </h2>
-    <p class="text-lg font-bold text-yellow-600">
-      Abeg say yes, My Beautiful Baby! ❤️
-    </p>
+    <p class="font-bold text-yellow-600">Say yes 🤎</p>
   </div>
 
-  <div class="flex flex-col gap-4">
-    <button id="yesBtn" onclick="celebrate()" class="px-16 py-4 rounded-full text-2xl font-bold">
-      YES!
-    </button>
-    <button id="noBtn" onclick="moveNoAndGrow()" class="px-10 py-2 rounded-full">
-      No
-    </button>
-  </div>
+  <button id="yesBtn" onclick="celebrate()">YES!</button>
+  <button id="noBtn" onclick="moveNo()">No</button>
 </div>
 
 <script>
-function createBGHeart() {
-  const heart = document.createElement('div');
-  heart.className = 'heart-particle';
-  heart.innerHTML = '🤎';
-  heart.style.left = Math.random()*100 + 'vw';
-  document.getElementById('bg-hearts').appendChild(heart);
-  setTimeout(()=>heart.remove(),8000);
+function startExperience() {
+  document.getElementById('loveSong').play();
+  nextSlide(2);
 }
-setInterval(createBGHeart,500);
 
-function nextSlide(n){
-  document.querySelectorAll('.slide').forEach(s=>s.classList.remove('active'));
+function nextSlide(n) {
+  document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
   document.getElementById('slide'+n).classList.add('active');
 }
 
-let scale = 1;
-function moveNoAndGrow(){
+function moveNo() {
   const no = document.getElementById('noBtn');
-  const yes = document.getElementById('yesBtn');
-  no.style.position='fixed';
-  no.style.left=Math.random()*(window.innerWidth-120)+'px';
-  no.style.top=Math.random()*(window.innerHeight-60)+'px';
-  scale+=0.4;
-  yes.style.transform=`scale(${scale})`;
+  no.style.position = 'fixed';
+  no.style.left = Math.random()*80 + 'vw';
+  no.style.top = Math.random()*80 + 'vh';
 }
 
 function celebrate() {
-
-  // CONFETTI EFFECT
-  for (let i = 0; i < 40; i++) {
-    const confetti = document.createElement('div');
-    confetti.className = 'confetti';
-    confetti.innerHTML = ['💖','💛','❤️','✨','😍'][Math.floor(Math.random()*5)];
-    confetti.style.left = Math.random() * 100 + 'vw';
-    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
-    document.body.appendChild(confetti);
-    setTimeout(() => confetti.remove(), 3000);
+  for (let i=0;i<60;i++) {
+    const c = document.createElement('div');
+    c.className = 'confetti';
+    c.innerHTML = ['🤎','💖','✨','💛'][Math.floor(Math.random()*4)];
+    c.style.left = Math.random()*100+'vw';
+    c.style.animationDuration = (Math.random()*2+2)+'s';
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),4000);
   }
 
-  // FINAL SCREEN
-  setTimeout(() => {
+  setTimeout(()=>{
     document.body.innerHTML = `
       <div class="slide active">
-        <div class="emoji-icon">💖</div>
-        <h1 class="text-6xl font-bold text-yellow-500 mb-6"
-            style="font-family:'Dancing Script';">
-          YAY! ❤️
+        <h1 class="text-6xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
+          She Said YES 🤎
         </h1>
-        <p class="text-2xl italic mb-4">
-          You've made me the happiest man alive!
-        </p>
-        <p class="text-lg">
-          I love you, My Beautiful Baby! Forever and always.
+        <p class="text-xl italic">
+          I’ll love you for a thousand years… and more.
         </p>
       </div>
     `;
-  }, 1200);
+  },1200);
 }
-
 </script>
 
 </body>
 </html>
-
