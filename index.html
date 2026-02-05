@@ -32,7 +32,7 @@ body {
   align-items: center;
   flex-direction: column;
   text-align: center;
-  padding: 25px;
+  padding: 20px;
   position: absolute;
 }
 
@@ -47,23 +47,18 @@ body {
 }
 
 .brown-card {
-  background: rgba(58,36,24,0.96);
+  background: rgba(58,36,24,0.95);
   border: 1px solid var(--gold);
-  border-radius: 28px;
-  padding: 2.5rem;
+  border-radius: 24px;
+  padding: 2.2rem;
   max-width: 520px;
 }
 
-.brown-card p {
-  font-size: 1rem;
-  line-height: 1.7;
-}
-
 .btn-next {
-  margin-top: 1.8rem;
+  margin-top: 1.5rem;
   background: var(--gold);
   color: var(--deep-brown);
-  padding: 14px 40px;
+  padding: 12px 35px;
   border-radius: 50px;
   font-weight: bold;
   cursor: pointer;
@@ -71,36 +66,36 @@ body {
 }
 
 .minion {
-  width: 170px;
+  width: 160px;
   animation: bounce 2.5s infinite;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 @keyframes bounce {
-  50% { transform: translateY(-14px); }
+  50% { transform: translateY(-12px); }
 }
 
 #yesBtn {
   background: var(--gold);
   color: var(--deep-brown);
-  font-size: 1.6rem;
-  padding: 16px 70px;
+  font-size: 1.5rem;
+  padding: 14px 60px;
   border-radius: 999px;
+  transition: transform 0.3s;
 }
 
 #noBtn {
   background: #555;
   color: white;
-  padding: 12px 34px;
+  padding: 10px 30px;
   border-radius: 999px;
 }
 
 .confetti {
   position: fixed;
   top: -20px;
-  font-size: 28px;
+  font-size: 26px;
   animation: fall linear forwards;
-  z-index: 999;
 }
 
 @keyframes fall {
@@ -114,6 +109,7 @@ body {
 
 <body>
 
+<!-- MUSIC -->
 <audio id="loveSong" src="thousand-years.mp3"></audio>
 
 <!-- SLIDE 1 -->
@@ -121,120 +117,108 @@ body {
   <h1 class="text-4xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
     Bello, My Beautiful Baby 🤎
   </h1>
-  <p class="italic text-lg max-w-md">
-    I made this slowly, intentionally, and with so much love.
-    This is my heart speaking to yours.
-  </p>
+  <p class="italic">I made this just for you…</p>
   <button class="btn-next" onclick="startExperience()">Open It ✨</button>
 </div>
 
 <!-- SLIDE 2 -->
 <div class="slide" id="slide2">
   <div class="brown-card">
-    <h2 class="text-4xl text-yellow-500 mb-6" style="font-family:'Dancing Script'">
-      My Eternal Queen
+    <h2 class="text-3xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
+      To My Eternal Queen
     </h2>
-    <p class="mb-4">
-      You don’t just exist beautifully — you *lead* with beauty.
-      The way you carry yourself, the way you speak, the way you care,
-      all remind me that true elegance comes from the heart.
-    </p>
-    <p class="mb-4">
-      You walk with a quiet confidence that doesn’t need to shout.
-      You uplift without trying, you love without conditions,
-      and you give without expecting anything back.
-    </p>
-    <p>
-      Being loved by you is an honour I never take lightly.
-      I see you. I admire you. I choose you — every single day.
+    <p class="text-sm text-left">
+      There truly aren’t enough words to describe how incredible you are.
+      Your presence alone brings warmth, calm, and meaning into my life.
+      Loving you feels natural, effortless, and deeply right.
     </p>
   </div>
-  <button class="btn-next" onclick="nextSlide(3)">Next…</button>
+  <button class="btn-next" onclick="nextSlide(3)">Next</button>
 </div>
 
 <!-- SLIDE 3 -->
 <div class="slide" id="slide3">
   <div class="brown-card">
-    <h2 class="text-4xl text-yellow-500 mb-6" style="font-family:'Dancing Script'">
-      My Soft Baby 🤎
+    <h2 class="text-3xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
+      My Beautiful Princess
     </h2>
-    <p class="mb-4">
-      I call you my soft baby because there is a tenderness in you
-      that the world doesn’t always get to see.
-      A gentleness that feels like safety.
-    </p>
-    <p class="mb-4">
-      You love deeply. You feel sincerely.
-      And when you let me into that softness,
-      it feels like the most precious gift.
-    </p>
-    <p>
-      With you, love feels calm, warm, and real.
-      You remind me that strength and softness
-      can exist beautifully together.
+    <p class="text-sm text-left">
+      You are my joy, my peace, and my favorite person.
+      With you, even ordinary moments feel special,
+      and life feels lighter just knowing you exist.
     </p>
   </div>
-  <button class="btn-next" onclick="nextSlide(4)">Keep going…</button>
+  <button class="btn-next" onclick="nextSlide(4)">Next</button>
 </div>
 
 <!-- SLIDE 4 -->
 <div class="slide" id="slide4">
   <div class="brown-card">
-    <h2 class="text-4xl text-yellow-500 mb-6" style="font-family:'Dancing Script'">
-      My Dazzling Gem ✨
+    <h2 class="text-3xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
+      My Baby, My Everything
     </h2>
-    <p class="mb-4">
-      You shine in ways that have nothing to do with appearance.
-      Your mind, your humour, your kindness —
-      they sparkle effortlessly.
-    </p>
-    <p class="mb-4">
-      You turn ordinary moments into memories.
-      Conversations with you never feel empty.
-      Time with you never feels wasted.
-    </p>
-    <p>
-      You are rare.
-      And I treasure you the way something precious
-      deserves to be treasured.
+    <p class="italic">
+      I have loved you for a thousand years,<br>
+      I’ll love you for a thousand more 🤎
     </p>
   </div>
-  <button class="btn-next" onclick="nextSlide(5)">Next…</button>
+  <button class="btn-next" onclick="nextSlide(5)">Next</button>
 </div>
 
-<!-- SLIDE 5 -->
+<!-- NEW SLIDE 5 -->
 <div class="slide" id="slide5">
-  <div class="brown-card">
-    <h2 class="text-4xl text-yellow-500 mb-6" style="font-family:'Dancing Script'">
-      My Safe Place
+  <div class="brown-card text-left">
+    <h2 class="text-3xl text-yellow-500 mb-4 text-center" style="font-family:'Dancing Script'">
+      You Are Many Things To Me
     </h2>
-    <p class="mb-4">
-      When life gets loud, you are my calm.
-      When days feel heavy, you are my relief.
-    </p>
-    <p class="mb-4">
-      With you, I don’t have to pretend.
-      I can be real. I can be soft.
-      I can just *be*.
-    </p>
-    <p>
-      Loving you feels like coming home.
-    </p>
+
+    <p><b>My love</b> — because my heart chose you without hesitation.</p>
+    <p><b>My comfort</b> — you calm me in ways words can’t explain.</p>
+    <p><b>My queen</b> — you carry grace, strength, and dignity effortlessly.</p>
+    <p><b>My princess</b> — soft, precious, and deeply cherished.</p>
+    <p><b>My special princess</b> — because there is only one you.</p>
+    <p><b>My best friend</b> — you understand me, even when I don’t speak.</p>
+    <p><b>My peace</b> — chaos fades whenever you’re near.</p>
+    <p><b>My cuddle buddy</b> — even though you never approve my rights o 😒</p>
+    <p><b>My safe zone</b> — with you, I feel secure and at home.</p>
+    <p><b>My anti-depressant</b> — your smile alone lifts my spirit.</p>
+    <p><b>My babe & my bae</b> — because you’re my person.</p>
+    <p><b>My strict partner</b> — firm, principled, and adorable about it.</p>
+    <p><b>My one and only love</b> — no competition, no replacement.</p>
   </div>
-  <button class="btn-next" onclick="nextSlide(6)">The Question…</button>
+  <button class="btn-next" onclick="nextSlide(6)">Next</button>
 </div>
 
-<!-- SLIDE 6 -->
+<!-- NEW SLIDE 6 -->
 <div class="slide" id="slide6">
-  <img src="minion.png" class="minion" alt="Minion kneeling with heart">
+  <div class="brown-card">
+    <h2 class="text-3xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
+      And It’s Because of You…
+    </h2>
+    <p class="text-sm text-left">
+      It’s because of you that I get a little crazy sometimes.
+      I crave you more than I admit. When I think about you,
+      I get flustered, distracted, and completely unable to think straight.
+    </p>
+    <p class="text-sm text-left mt-3">
+      You’re incredibly attractive — not just physically,
+      but emotionally, mentally, and spiritually.
+      And yes… I’ll keep complaining (jokingly 😒)
+      about how you still haven’t given me my permissions yet.
+      But even that just makes you more irresistible.
+    </p>
+  </div>
+  <button class="btn-next" onclick="nextSlide(7)">The Question</button>
+</div>
 
+<!-- QUESTION SLIDE -->
+<div class="slide" id="slide7">
+  <img src="minion.png" class="minion" alt="Minion kneeling">
   <div class="brown-card mb-6">
-    <h2 class="text-4xl text-yellow-500" style="font-family:'Dancing Script'">
+    <h2 class="text-3xl text-yellow-500" style="font-family:'Dancing Script'">
       Will you be my Valentine?
     </h2>
-    <p class="text-lg font-bold text-yellow-600 mt-2">
-      Today… and always 🤎
-    </p>
+    <p class="font-bold text-yellow-600">Say yes 🤎</p>
   </div>
 
   <button id="yesBtn" onclick="celebrate()">YES!</button>
@@ -249,7 +233,7 @@ function startExperience() {
 
 function nextSlide(n) {
   document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
-  document.getElementById('slide' + n).classList.add('active');
+  document.getElementById('slide'+n).classList.add('active');
 }
 
 function moveNo() {
@@ -260,29 +244,28 @@ function moveNo() {
 }
 
 function celebrate() {
-  for (let i = 0; i < 70; i++) {
+  for (let i=0;i<60;i++) {
     const c = document.createElement('div');
     c.className = 'confetti';
     c.innerHTML = ['🤎','💖','✨','💛'][Math.floor(Math.random()*4)];
-    c.style.left = Math.random()*100 + 'vw';
-    c.style.animationDuration = (Math.random()*2 + 2) + 's';
+    c.style.left = Math.random()*100+'vw';
+    c.style.animationDuration = (Math.random()*2+2)+'s';
     document.body.appendChild(c);
-    setTimeout(() => c.remove(), 4000);
+    setTimeout(()=>c.remove(),4000);
   }
 
-  setTimeout(() => {
+  setTimeout(()=>{
     document.body.innerHTML = `
       <div class="slide active">
         <h1 class="text-6xl text-yellow-500 mb-4" style="font-family:'Dancing Script'">
           She Said YES 🤎
         </h1>
-        <p class="text-2xl italic max-w-md">
-          I have loved you for a thousand years…  
-          and I’ll love you for a thousand more.
+        <p class="text-xl italic">
+          I’ll love you for a thousand years… and more.
         </p>
       </div>
     `;
-  }, 1200);
+  },1200);
 }
 </script>
 
